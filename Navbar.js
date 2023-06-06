@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom/dist";
+import { NavLink } from "react-router-dom";
 import { Container, Nav, Navbar as Navbarbs } from "react-bootstrap";
 import { useContext } from "react";
 import AuthContext from "./Auth/AuthContext";
@@ -7,8 +7,7 @@ export function Navbar() {
   const isLoggedIn = AuthCtx.IsLoggedIn;
   const logoutHandler = () => {
     AuthCtx.logout();
-  };
-
+  }
   
   return (
     <Navbarbs sticky="top" className="bg-secondary shadow-sm mb-3">
@@ -23,9 +22,9 @@ export function Navbar() {
               Login
             </Nav.Link>
           )} */}
-          <Nav.Link to="/signup" as={NavLink}>
+          <Nav.Link to="/login" as={NavLink}>
             
-           {isLoggedIn ? "Signup" : "Login"}
+           {isLoggedIn ? "Logout" : "Signup"}
            </Nav.Link>
 
           {isLoggedIn && (
@@ -45,8 +44,13 @@ export function Navbar() {
             </Nav.Link>
           )}
           {isLoggedIn && (
-            <Nav.Link to="logout" as={NavLink} onClick={logoutHandler}>
-              Logout
+            <Nav.Link to="/logout" as={NavLink}  onClick={logoutHandler}>
+              refresh
+              <Nav.Link to="/login" as={NavLink}>
+        
+        
+            </Nav.Link>
+
             </Nav.Link>
           )}
         </Nav>

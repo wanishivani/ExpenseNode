@@ -8,7 +8,7 @@ import { getAuth, sendEmailVerification } from "firebase/auth";
 import styles from "./Signup.module.css";
 
 export default function Signup() {
-  const navigate = useNavigate();
+  const navigate = useNavigate('/');
   const [values, setValues] = useState({
     name: "",
     email: "",

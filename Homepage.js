@@ -1,8 +1,12 @@
 // import classes from '../Page/Home.modules.css';
 // import {Card} from 'react-bootstrap';
 import React from "react";
-import { Link } from "react-router-dom";
+
+import { Link,useNavigate } from "react-router-dom";
 export  function Homepage(props) { 
+  const navigate = useNavigate();
+  navigate("/");
+
     return (
     
       
