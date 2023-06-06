@@ -3,9 +3,11 @@ import { getAuth } from "firebase/auth";
 import {  updateProfile } from "firebase/auth";
 import {useState} from 'react';
 import InputControl from "./InputControl"
+// import {useNavigate} from 'react-router-dom';
 
 export default function Profile()  {
-
+  // const navigate = useNavigate();
+  // navigate("/");
 const auth = getAuth();
 const Cuser = auth.currentUser;
 const [user, setUser] = useState();

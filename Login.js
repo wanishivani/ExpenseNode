@@ -5,6 +5,7 @@ import { auth } from "../firebase";
 import InputControl from "../Form/InputControl";
 
 import styles from "./Login.module.css";
+import AuthContext from "../Auth/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function Login() {
   });
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
-  
+  const authCtx =(AuthContext);
 
   
 
@@ -30,7 +31,7 @@ export default function Login() {
       .then(async (res) => {
         setSubmitButtonDisabled(false);
 
-        navigate("/");
+        navigate("profile");
       })
       .catch((err) => {
        const errorMsg = "Error Password!";
@@ -40,6 +41,8 @@ export default function Login() {
          alert(errorMsg)
 
       });
+
+
   };
   return (
     <div className={styles.container}>
@@ -72,10 +75,15 @@ export default function Login() {
           <div>
         </div>
           <p>
-            Already have an account?{" "}
+            Create account?{" "}
             <span>
 
               <Link to="/signup">Sign up</Link>
+            </span>
+          </p>
+          <p>
+            <span>
+            <Link to="/product">Forgot password</Link>
             </span>
           </p>
         </div>
